@@ -2,6 +2,10 @@
 
 一個重視隱私的 PDF 線上工具。所有文件都在瀏覽器本機處理，不會上傳到伺服器。
 
+## 線上使用
+
+[開啟 PDF Breeze](https://ctsai0124.github.io/pdf-breeze/)
+
 ## 功能
 
 - 合併多份 PDF
@@ -22,11 +26,8 @@ npm run dev
 
 開啟 `http://localhost:3000`。
 
-## 透過 GitHub 部署到 Zeabur
+## 發布
 
-1. 在 GitHub 建立新的 repository，將此專案 push 上去。
-2. 登入 Zeabur，建立 Project，選擇 **Deploy New Service → GitHub**。
-3. 選取剛建立的 repository；Zeabur 會讀取 `zbpack.json` 自動建置與啟動。
-4. 部署完成後，在服務的 **Networking** 頁面產生網域。
+推送到 `master` 後，GitHub Actions 會建立靜態網站並自動發布至 GitHub Pages。
 
-不需要資料庫、物件儲存或任何環境變數。
+不需要伺服器、資料庫、物件儲存或環境變數。

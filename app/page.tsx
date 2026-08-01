@@ -134,7 +134,7 @@ export default function Home() {
       if (active === "compress") {
         if (!singleFile) throw new Error("請先選擇一份 PDF。");
         const pdfjs = await import("pdfjs-dist");
-        pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+        pdfjs.GlobalWorkerOptions.workerSrc = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/pdf.worker.min.mjs`;
         const sourceBytes = new Uint8Array(await singleFile.arrayBuffer());
         const source = await pdfjs.getDocument({ data: sourceBytes }).promise;
         const output = await PDFDocument.create();
@@ -220,7 +220,7 @@ export default function Home() {
       if (active === "pdfToJpg") {
         if (!singleFile) throw new Error("請先選擇一份 PDF。");
         const [{ default: JSZip }, pdfjs] = await Promise.all([import("jszip"), import("pdfjs-dist")]);
-        pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+        pdfjs.GlobalWorkerOptions.workerSrc = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/pdf.worker.min.mjs`;
         const source = await pdfjs.getDocument({ data: new Uint8Array(await singleFile.arrayBuffer()) }).promise;
         const zip = new JSZip();
         for (let pageNumber = 1; pageNumber <= source.numPages; pageNumber += 1) {

@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = "https://ctsai0124.github.io/pdf-breeze";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "PDF Breeze｜免費 PDF 合併、擷取與旋轉工具",
   description: "檔案不上傳，在瀏覽器中快速合併、擷取與旋轉 PDF。",
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: `${basePath}/favicon.svg`, shortcut: `${basePath}/favicon.svg` },
   openGraph: {
     title: "PDF Breeze｜整理 PDF，不用繞遠路",
     description: "合併、擷取、旋轉；檔案只在你的瀏覽器中處理。",
-    images: [{ url: "/og.png", width: 1734, height: 907, alt: "PDF Breeze PDF 線上工具" }],
+    images: [{ url: `${siteUrl}/og.png`, width: 1734, height: 907, alt: "PDF Breeze PDF 線上工具" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", images: [`${siteUrl}/og.png`] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
